@@ -1,0 +1,21 @@
+Conclusiones de la Prueba de Carga - Login FakeStoreAPI
+
+1. Hallazgos principales:
+- El escenario configurado alcanzó el objetivo de 20 TPS constantes durante 1 minuto.
+- El tiempo de respuesta (p95) se mantuvo por debajo de 1.5 segundos en la mayoría de las ejecuciones.
+- La tasa de errores fue menor al 3% del total de peticiones, cumpliendo con el criterio de aceptación.
+
+2. Observaciones:
+- Algunos usuarios con credenciales incorrectas generan respuestas distintas (status != 200), pero no afectan la estabilidad general de la prueba.
+- La API respondió de forma consistente bajo la carga impuesta, sin presentar caídas o tiempos de espera prolongados.
+
+3. Conclusiones:
+- El servicio de login de FakeStoreAPI soporta adecuadamente una carga de 20 TPS.
+- La performance medida está dentro de los criterios establecidos:
+  * Tiempo de respuesta < 1.5s.
+  * Tasa de error < 3%.
+
+4. Recomendaciones:
+- Escalar la prueba a un mayor tiempo de ejecución (5-10 minutos) para validar estabilidad a largo plazo.
+- Probar con una tasa mayor a 20 TPS para identificar el punto de saturación del servicio.
+- Integrar las pruebas en un pipeline CI/CD para ejecución automatizada en cada release.
